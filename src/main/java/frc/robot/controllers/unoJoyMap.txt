@@ -1,0 +1,18 @@
+BUTTON/SWITCH   UNO CONNECTION  CHANNEL (IN DRIVER STATION)
+button0         DIO  2           3
+button1         DIO  3           2
+button2         DIO  4           0
+button3         DIO  5           1
+button4         DIO  6           4
+button5         DIO  7           6
+
+toggle0         DIO  8          10
+toggle1         DIO  9           5
+toggle2         DIO 10           7
+toggle3         DIO 11          11
+toggle4         DIO 12           8
+
+pot0            AI   0           0
+pot1            AI   1           1
+pot2            AI   2           2
+pot3            AI   3           3
