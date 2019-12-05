@@ -50,6 +50,7 @@ public class Robot extends IterativeRobot {
   Drive drive;
   //Joysticks
   Joystick joy0, joy1;
+  int buttonPanel;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -58,7 +59,8 @@ public class Robot extends IterativeRobot {
   @Override
   public void robotInit() {
     //Initialize CargoMechanism
-    cargoMechanism = new CargoMechanism(RobotMap.cargoArm, RobotMap.cargoIntakeLeft, RobotMap.cargoIntakeRight);
+    buttonpanelport=2;
+    cargoMechanism = new CargoMechanism(buttonpanelport);
     cargoMechanism.setSensors(RobotMap.cargoTopSwitch, RobotMap.cargoBottomSwitch);
     cargoMechanism.setChannels(joy1, 6, 5, 4, 1);
     //Initialize HatchMechanism

@@ -21,28 +21,14 @@ public class Climb {
      * @param lowWheel1 one of the wheels that drives the elevated robot forward
      * @param lowWheel2 one of the wheels that drives the elevated robot forward
      */
-    public Climb(DoubleSolenoid back, DoubleSolenoid front, SpeedController lowWheel1, SpeedController lowWheel2) {
-        this.back = back;
-        this.front = front;
-        this.lowWheel1 = lowWheel1;
-        this.lowWheel2 = lowWheel2;
-    }
-    /**
-     * State the parts of the subsystem that move and the parts that take user input.
-     * @param back the solenoid associated with the rear climbing air cylinders
-     * @param front the solenoid associated with the front climbing air cylinders
-     * @param lowWheel1 one of the wheels that drives the elevated robot forward
-     * @param lowWheel2 one of the wheels that drives the elevated robot forward
-     * @param joystick the joystick used to control the climbing subsystem
-     * @param raiseBackChannel the joystick channel associated with raising the back of the robot
-     * @param raiseFrontChannel the joystick channel associated with raising the front of the robot
-     * @param driveForwardChannel the joystick channel associated with driving forward when the robot is elevated
-     */
-    public Climb(DoubleSolenoid back, DoubleSolenoid front, SpeedController lowWheel1, SpeedController lowWheel2, Joystick joystick, int raiseBackChannel, int raiseFrontChannel, int driveForwardChannel) {
-        this(back, front, lowWheel1, lowWheel2);
-        setChannels(joystick, raiseBackChannel, raiseFrontChannel, driveForwardChannel);
-    }
+    public Climb() {
+        joystick = new Joystick(RobotMap2.joystickPort);
+        back = new DoubleSolenoid(RobotMap2.backSolenoidPort);
+        front = new DoubleSolenoid(RobotMap2.frontSolenoidPort);
+        lowWheel1 = new SpeedController(RobotMap2.lowWheel1Port);
+        lowWheel2 = new SpeedController(RobotMap2.lowWheel2Port);
 
+    }
     /**
      * Set the joystick channels that control this subsystem.
      * @param joystick the joystick used to control the climbing subsystem
@@ -50,11 +36,7 @@ public class Climb {
      * @param raiseFrontChannel the joystick channel associated with raising the front of the robot
      * @param driveForwardChannel the joystick channel associated with driving forward when the robot is elevated
      */
-    public void setChannels(Joystick joystick, int raiseBackChannel, int raiseFrontChannel, int driveForwardChannel) {
-        this.raiseBackChannel = raiseBackChannel;
-        this.raiseFrontChannel = raiseFrontChannel;
-        this.driveForwardChannel = driveForwardChannel;
-    }
+  
 
 
     /**

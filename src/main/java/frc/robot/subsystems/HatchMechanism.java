@@ -16,8 +16,9 @@ public class HatchMechanism {
      * It will also be necessary to state the parts that take user input.
      * @param solenoid the solenoid associated with the air cylinders that eject hatches from the robot
      */
-    public HatchMechanism(DoubleSolenoid solenoid) {
-        this.solenoid = solenoid;
+    public HatchMechanism() {
+        joystick = new Joystick(RobotMap2.joystickPort);
+        solenoid = new DoubleSolenoid(RobotMap2.solenoidPort);
     }
     /**
      * State the parts of the subsystem that move and the parts that take user input.
@@ -25,20 +26,6 @@ public class HatchMechanism {
      * @param joystick the joystick that controls this subsystem
      * @param outtakeChannel the joystick channel that tells the mechanism to eject the hatch it is holding
      */
-    public HatchMechanism(DoubleSolenoid solenoid, Joystick joystick, int outtakeChannel) {
-        this(solenoid);
-        setChannels(joystick, outtakeChannel);
-    }
-    
-    /**
-     * Set the joystick channels that control this subsystem.
-     * @param joystick the joystick that controls this subsystem
-     * @param outtakeChannel the joystick channel that tells the mechanism to eject the hatch it is holding
-     */
-    public void setChannels(Joystick joystick, int outtakeChannel) {
-        this.joystick = joystick;
-        this.outtakeChannel = outtakeChannel;
-    }
 
 
     /**

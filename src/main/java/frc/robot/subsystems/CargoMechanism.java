@@ -14,75 +14,20 @@ public class CargoMechanism {
     private SpeedController arm, intakeLeft, intakeRight;
     private DigitalInput topSwitch, bottomSwitch;
 
-    /**
-     * State the parts of the subsystem that move.
-     * It will also be necessary to state the parts that take user input.
-     * @param arm the part that raises and lowers the entire mechanism.
-     * @param intakeLeft associated with left intake wheel
-     * @param intakeRight associated with right intake wheel
-     */
-    public CargoMechanism(SpeedController arm, SpeedController intakeLeft, SpeedController intakeRight) {
-        this.arm = arm;
-        this.intakeLeft = intakeLeft;
-        this.intakeRight = intakeRight;
+
+    public CargoMechanism() {
+        joystick = new Joystick(RobotMap2.joystickPort);
+        arm = new SpeedController(RobotMap2.hatchPort);
+        intakeLeft = new SpeedController(RobotMap2.intakeLeftPort);
+        intakeRight = new SpeedController(RobotMap2.intakeRightPort);
+        topSwitch = new DigitalInput(RobotMap2.topSwitchPort);
+        bottomSwitch = new DigitalInput(RobotMap2.bottomSwitchPort);
     }
-    /**
-     * State the parts of the subsystem that move and the parts that take user input.
-     * @param arm the part that raises and lowers the entire mechanism.
-     * @param intakeLeft associated with left intake wheel
-     * @param intakeRight associated with right intake wheel
-     * @param joystick the joystick used to control this subsystem
-     * @param intakeChannel the channel on the joystick that tells the subsystem to intake
-     * @param outtakeChannel the channel on the joystick that tells the subsystem to outtake
-     * @param raiseChannel the channel on the joystick that tells the arm to raise the subsystem upwards
-     * @param lowerChannel the channel on the joystick that tells the arm to lower the subsystem downwards
-     */
-    public CargoMechanism(SpeedController arm, SpeedController intakeLeft, SpeedController intakeRight, Joystick joystick, int intakeChannel, int outtakeChannel, int raiseChannel, int lowerChannel) {
-        this(arm, intakeLeft, intakeRight);
-        setChannels(joystick, intakeChannel, outtakeChannel, raiseChannel, lowerChannel);
-    }
-    /**
-     * State the parts of the subsystem that move, the parts that take user input, 
-     * and the sensors.
-     * @param arm the part that raises and lowers the entire mechanism.
-     * @param intakeLeft associated with left intake wheel
-     * @param intakeRight associated with right intake wheel
-     * @param joystick the joystick used to control this subsystem
-     * @param intakeChannel the channel on the joystick that tells the subsystem to intake
-     * @param outtakeChannel the channel on the joystick that tells the subsystem to outtake
-     * @param raiseChannel the channel on the joystick that tells the arm to raise the subsystem upwards
-     * @param lowerChannel the channel on the joystick that tells the arm to lower the subsystem downwards
-     * @param topSwitch the input from the top limit switch
-     * @param bottomSwitch the input from the bottom limit switch
-     */
-    public CargoMechanism(SpeedController arm, SpeedController intakeLeft, SpeedController intakeRight, Joystick joystick, int intakeChannel, int outtakeChannel, int raiseChannel, int lowerChannel, DigitalInput topSwitch, DigitalInput bottomSwitch) {
-        this(arm, intakeLeft, intakeRight);
-        setChannels(joystick, intakeChannel, outtakeChannel, raiseChannel, lowerChannel);
-        setSensors(topSwitch, bottomSwitch);
-    }
-    
-    /**
-     * Set the joystick channels that control this subsystem.
-     * @param joystick the joystick used to control this subsystem
-     * @param intakeChannel the channel on the joystick that tells the subsystem to intake
-     * @param outtakeChannel the channel on the joystick that tells the subsystem to outtake
-     * @param raiseChannel the channel on the joystick that tells the arm to raise the subsystem upwards
-     * @param lowerChannel the channel on the joystick that tells the arm to lower the subsystem downwards
-     */
-    public void setChannels(Joystick joystick, int intakeChannel, int outtakeChannel, int raiseChannel, int lowerChannel) {
-        this.joystick = joystick;
-        this.intakeChannel = intakeChannel;
-        this.outtakeChannel = outtakeChannel;
-        this.raiseChannel = raiseChannel;
-        this.lowerChannel = lowerChannel;
-    }
-    /**
-     * State the parts of the subsystem that move, the parts that take user input, 
-     * and the sensors.
-     * @param topSwitch the input from the top limit switch
-     * @param bottomSwitch the input from the bottom limit switch
-     */
-    public void setSensors(DigitalInput topSwitch, DigitalInput bottomSwitch) {
+
+
+  
+
+    /*public void setSensors(DigitalInput topSwitch, DigitalInput bottomSwitch) {
         this.topSwitch = topSwitch;
         this.bottomSwitch = bottomSwitch;
     }
@@ -93,6 +38,7 @@ public class CargoMechanism {
      * raising the arm is impossible.
      */
     public void raiseArm() {
+
         if (topSwitch.get()) { //arm appears to be lifted to max height
             arm.set(0.1);
             // stops arm angle motor at top
@@ -143,14 +89,14 @@ public class CargoMechanism {
      * to ensure the subsystem updates its behavior according to user input and sensor input
      */
     public void run() {
-        if(joystick.getRawButton(raiseChannel)) {
+        if(joystick.getRawButton(UnoJoy2.armButtonUp)) {
             raiseArm();
         }
-        else if(joystick.getRawButton(lowerChannel)) {
+        else if(joystick.getRawButton(UnoJoy2.armButtonDown)) {
             lowerArm();
         }
 
-        if(joystick.getRawButton(intakeChannel)) {
+        if(joystick.getRawButton(UnoJoy2.)) {
             intake();
         }
         else if(joystick.getRawButton(outtakeChannel)) {
