@@ -113,6 +113,9 @@ public class CargoMechanism {
             arm.set(-.4);// set to 0.4 because its working with gravity
         }
     }
+    public void relaxArm() {
+        arm.set(0.05);
+    }
     
 
     /**
@@ -148,6 +151,9 @@ public class CargoMechanism {
         }
         else if(joystick.getRawButton(lowerChannel)) {
             lowerArm();
+        }
+        else {
+            relaxArm(); //edit relaxArm() if you find the arm drifts up when it should hold still
         }
 
         if(joystick.getRawButton(intakeChannel)) {

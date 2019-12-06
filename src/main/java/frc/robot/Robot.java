@@ -60,19 +60,19 @@ public class Robot extends IterativeRobot {
     //Initialize CargoMechanism
     cargoMechanism = new CargoMechanism(RobotMap.cargoArm, RobotMap.cargoIntakeLeft, RobotMap.cargoIntakeRight);
     cargoMechanism.setSensors(RobotMap.cargoTopSwitch, RobotMap.cargoBottomSwitch);
-    cargoMechanism.setChannels(joy1, 6, 5, 4, 1);
+    cargoMechanism.setChannels(RobotMap.joyManipulators1, RobotMap.cargoIntakeChannel, RobotMap.cargoOuttakeChannel, RobotMap.cargoRaiseChannel, RobotMap.cargoLowerChannel);
     //Initialize HatchMechanism
-    hatchMechanism = new HatchMechanism(new DoubleSolenoid(0, 3));
-    hatchMechanism.setChannels(joy1, 2);
+    hatchMechanism = new HatchMechanism(RobotMap.hatchSolenoid);
+    hatchMechanism.setChannels(RobotMap.joyManipulators1, RobotMap.hatchOuttakeChannel);
     //Initialize Climb
-    climb = new Climb(new DoubleSolenoid(1, 4), new DoubleSolenoid(2, 5), new VictorSP(3), new VictorSP(2));
-    climb.setChannels(joy0, 6, 5, 4);
+    climb = new Climb(RobotMap.climbBackSolenoid, RobotMap.climbFrontSolenoid, RobotMap.climbLowWheel1, RobotMap.climbLowWheel2);
+    climb.setChannels(RobotMap.joyDrive0, RobotMap.climbRaiseBackChannel, RobotMap.climbRaiseFrontChannel, RobotMap.climbDriveForwardChannel);
     //Initialize Drive
     
     drive = new Drive(RobotMap.driveLeftWheels, RobotMap.driveRightWheels);
-    drive.setChannels(joy0, 1, 4);
+    drive.setChannels(RobotMap.joyDrive0, RobotMap.driveVelocityChannel, RobotMap.driveTurnChannel);
     //Initialize PressureTransducer
-    transducer = new PressureTransducer(3);
+    transducer = RobotMap.transducer;
     //Code to send video to the driver station
     CameraServer.getInstance().startAutomaticCapture(0);
     CameraServer.getInstance().startAutomaticCapture(1);

@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
+import frc.robot.sensors.PressureTransducer;
+
 /**
  * The purpose of the RobotMap is to state what the parts of the 
  * robot are. That's it: we are just declaring and constructing every part
@@ -19,7 +21,8 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
  */
 public final class RobotMap {
     //JOYSTICKS
-    public Joystick joyDrive0, joyManipulators1;
+    public static Joystick  joyDrive0 = new Joystick(0),
+                            joyManipulators1 = new Joystick(1);
 
 
     //CARGO MECHANISM
@@ -81,7 +84,7 @@ public final class RobotMap {
      */
     public static int   climbRaiseBackChannel    = 6, 
                         climbRaiseFrontChannel   = 5,
-                        climbDriveForwardChannel = 0;
+                        climbDriveForwardChannel = 4;
 
     
     //DRIVE
@@ -96,4 +99,7 @@ public final class RobotMap {
      */
     public static int   driveVelocityChannel = 1,
                         driveTurnChannel     = 4;
+
+    //SENSORS, MISC.
+    public static PressureTransducer transducer = new PressureTransducer(3);
 }
