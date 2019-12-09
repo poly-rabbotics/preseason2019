@@ -62,17 +62,20 @@ public class Robot extends IterativeRobot {
     buttonpanelport=2;
     cargoMechanism = new CargoMechanism(buttonpanelport);
     cargoMechanism.setSensors(RobotMap.cargoTopSwitch, RobotMap.cargoBottomSwitch);
-    cargoMechanism.setChannels(joy1, 6, 5, 4, 1);
+    //cargoMechanism.setChannels(joy1, 6, 5, 4, 1);
+
     //Initialize HatchMechanism
     hatchMechanism = new HatchMechanism(new DoubleSolenoid(0, 3));
-    hatchMechanism.setChannels(joy1, 2);
+   // hatchMechanism.setChannels(joy1, 2);
+
     //Initialize Climb
     climb = new Climb(new DoubleSolenoid(1, 4), new DoubleSolenoid(2, 5), new VictorSP(3), new VictorSP(2));
-    climb.setChannels(joy0, 6, 5, 4);
+    //climb.setChannels(joy0, 6, 5, 4);
+
     //Initialize Drive
     
     drive = new Drive(RobotMap.driveLeftWheels, RobotMap.driveRightWheels);
-    drive.setChannels(joy0, 1, 4);
+   // drive.setChannels(joy0, 1, 4);
     //Initialize PressureTransducer
     transducer = new PressureTransducer(3);
     //Code to send video to the driver station

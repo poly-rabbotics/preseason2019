@@ -96,10 +96,12 @@ public class CargoMechanism {
             lowerArm();
         }
 
-        if(joystick.getRawButton(UnoJoy2.)) {
+        //fill each one in like the above with the correct buttons
+
+        if(joystick.getRawButton()) {
             intake();
         }
-        else if(joystick.getRawButton(outtakeChannel)) {
+        else if(joystick.getRawButton()) {
             outtake();
         }
         else {

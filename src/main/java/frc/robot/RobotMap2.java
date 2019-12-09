@@ -1,6 +1,7 @@
 class RobotMap2()
 
 {
+    //change these according to where they actually are
     static final int joystickPort = 1; //PWM Port 1
     static final int intakeLeftPort = 2;  //PWM Port 2
     static final int intakeRightPort = 3;

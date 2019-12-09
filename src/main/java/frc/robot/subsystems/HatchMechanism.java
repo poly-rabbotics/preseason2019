@@ -47,7 +47,7 @@ public class HatchMechanism {
      * to ensure the subsystem updates its behavior according to user input and sensor input
      */
     public void run() {
-        if (joystick.getRawButton(outtakeChannel)) {
+        if (joystick.getRawButton()) {
             outtake();
         }
         else {
