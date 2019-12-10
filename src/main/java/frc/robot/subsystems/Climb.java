@@ -84,21 +84,21 @@ public class Climb {
      * to ensure the subsystem updates its behavior according to user input and sensor input
      */
     public void run() {
-        if(joystick.getRawButton()){// right bumper
+        if(joystick.getRawButton(UnoJoy2.backSolenoidButton)){// right bumper
             raiseBack();
         }
         else {
           lowerBack();
         }//holding deploys back lift
       
-        if(joystick.getRawButton()){// left bumper
+        if(joystick.getRawButton(UnoJoy2.frontSolenoidButton)){// left bumper
           raiseFront();
         }
         else {
           lowerFront();
         }//holding deploys front lift
 
-        if(joystick.getRawButton(driveForwardChannel) && joystick.getRawButton() ){ 
+        if(joystick.getRawButton(UnoJoy2.liftWheelsButton) ){ 
             driveForward();
         }
         else {
