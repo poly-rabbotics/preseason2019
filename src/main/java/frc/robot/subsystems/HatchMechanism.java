@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.controllers.UnoJoy2;
-
+import frc.robot.RobotMap2;
 /**
  * The hatch subsystem, which passively intakes hatches and actively outtakes (ejects) them.
  */
@@ -19,7 +19,7 @@ public class HatchMechanism {
      */
     public HatchMechanism() {
         joystick = new Joystick(RobotMap2.joystickPort);
-        solenoid = new DoubleSolenoid(RobotMap2.solenoidPort);
+        solenoid = new DoubleSolenoid(RobotMap2.SolenoidPort1, RobotMap2.SolenoidPort2);
     }
     /**
      * State the parts of the subsystem that move and the parts that take user input.

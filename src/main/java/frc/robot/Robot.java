@@ -28,7 +28,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import frc.robot.subsystems.*;
 import frc.robot.sensors.*;
 import frc.robot.controllers.*;
-import frc.robot.RobotMap;
+import frc.robot.RobotMap2;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -59,22 +59,22 @@ public class Robot extends IterativeRobot {
   @Override
   public void robotInit() {
     //Initialize CargoMechanism
-    buttonpanelport=2;
-    cargoMechanism = new CargoMechanism(buttonpanelport);
-    cargoMechanism.setSensors(RobotMap.cargoTopSwitch, RobotMap.cargoBottomSwitch);
+   // buttonpanelport=2;
+    cargoMechanism = new CargoMechanism();
+   // cargoMechanism.setSensors();
     //cargoMechanism.setChannels(joy1, 6, 5, 4, 1);
 
     //Initialize HatchMechanism
-    hatchMechanism = new HatchMechanism(new DoubleSolenoid(0, 3));
+    hatchMechanism = new HatchMechanism();
    // hatchMechanism.setChannels(joy1, 2);
 
     //Initialize Climb
-    climb = new Climb(new DoubleSolenoid(1, 4), new DoubleSolenoid(2, 5), new VictorSP(3), new VictorSP(2));
+    climb = new Climb();
     //climb.setChannels(joy0, 6, 5, 4);
 
     //Initialize Drive
     
-    drive = new Drive(RobotMap.driveLeftWheels, RobotMap.driveRightWheels);
+    drive = new Drive();
    // drive.setChannels(joy0, 1, 4);
     //Initialize PressureTransducer
     transducer = new PressureTransducer(3);

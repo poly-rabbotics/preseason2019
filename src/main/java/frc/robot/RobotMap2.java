@@ -10,11 +10,14 @@ public class RobotMap2
     public static final int hatchPort = 4;
     public static final int topSwitchPort = 5;
     public static final int bottomSwitchPort = 6;
-    public static final int backSolenoidPort = 7;
-    public static final int frontSolenoidPort = 8;
+    public static final int backSolenoidPort1 = 7;
+    public static final int backSolenoidPort2 = 17;
+    public static final int frontSolenoidPort1 = 8;
+    public static final int frontSolenoidPort2 = 18;
     public static final int lowWheel1Port = 9;
     public static final int lowWheel2Port = 10;
-    public static final int solenoidPort = 11;
+    public static final int SolenoidPort1 = 11;
+    public static final int SolenoidPort2 = 16;
     public static final int left1Port = 12;
     public static final int left2Port = 13;
     public static final int right1Port = 14;

@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.controllers.UnoJoy2;
 import frc.robot.RobotMap2;
@@ -12,7 +12,7 @@ import frc.robot.RobotMap2;
  */
 public class Climb {
     private DoubleSolenoid back, front;
-    private SpeedController lowWheel1, lowWheel2;
+    private VictorSP lowWheel1, lowWheel2;
     private Joystick joystick;
     private int raiseBackChannel, raiseFrontChannel, driveForwardChannel;
     /**
@@ -25,10 +25,10 @@ public class Climb {
      */
     public Climb() {
         joystick = new Joystick(RobotMap2.joystickPort);
-        back = new DoubleSolenoid(RobotMap2.backSolenoidPort);
-        front = new DoubleSolenoid(RobotMap2.frontSolenoidPort);
-        lowWheel1 = new SpeedController(RobotMap2.lowWheel1Port);
-        lowWheel2 = new SpeedController(RobotMap2.lowWheel2Port);
+        back = new DoubleSolenoid(RobotMap2.backSolenoidPort1,RobotMap2.backSolenoidPort2);
+        front = new DoubleSolenoid(RobotMap2.frontSolenoidPort1,RobotMap2.frontSolenoidPort2);
+        lowWheel1 = new VictorSP(RobotMap2.lowWheel1Port);
+        lowWheel2 = new VictorSP(RobotMap2.lowWheel2Port);
 
     }
     /**
@@ -79,7 +79,7 @@ public class Climb {
         lowWheel1.set(0);
         lowWheel2.set(0);
     }
-    
+
     
     
     /**
