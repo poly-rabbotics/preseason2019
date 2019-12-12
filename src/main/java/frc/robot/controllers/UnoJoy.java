@@ -17,6 +17,7 @@ public class UnoJoy extends Joystick {
         super(port);
     }
 
+    
     @Override
     public boolean getRawButton(int channel) throws nonExistentChannelError {
         switch (channel) {

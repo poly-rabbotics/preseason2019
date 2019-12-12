@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.controllers.UnoJoy2;
+import frc.robot.RobotMap2;
 
 /**
  * The subsystem that raises the robot off the ground and drives it forward onto the platform.
@@ -77,6 +79,7 @@ public class Climb {
         lowWheel1.set(0);
         lowWheel2.set(0);
     }
+    
     
     
     /**

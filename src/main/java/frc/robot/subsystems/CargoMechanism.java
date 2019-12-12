@@ -1,29 +1,30 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.VictorSP;
+import frc.robot.controllers.UnoJoy2;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.RobotMap2;
 
 /**
  * The subsystem that intakes, holds, lifts, and shoots cargo. It includes both the "arm" that lifts the intake and the intake itself.
  */
 public class CargoMechanism {
-    private Joystick joystick;
-    private int intakeChannel, outtakeChannel;
-    private int raiseChannel, lowerChannel;
-    private SpeedController arm, intakeLeft, intakeRight;
-    private DigitalInput topSwitch, bottomSwitch;
+    private final Joystick joystick;
+    // private int intakeChannel, outtakeChannel;
+    // private int raiseChannel, lowerChannel;
+    private final VictorSP arm, intakeLeft, intakeRight;
+    private final DigitalInput topSwitch, bottomSwitch;
 
 
     public CargoMechanism() {
         joystick = new Joystick(RobotMap2.joystickPort);
-        arm = new SpeedController(RobotMap2.hatchPort);
-        intakeLeft = new SpeedController(RobotMap2.intakeLeftPort);
-        intakeRight = new SpeedController(RobotMap2.intakeRightPort);
+        arm = new VictorSP(RobotMap2.hatchPort);
+        intakeLeft = new VictorSP(RobotMap2.intakeLeftPort);
+        intakeRight = new VictorSP(RobotMap2.intakeRightPort);
         topSwitch = new DigitalInput(RobotMap2.topSwitchPort);
         bottomSwitch = new DigitalInput(RobotMap2.bottomSwitchPort);
     }
-
 
   
 
@@ -98,10 +99,10 @@ public class CargoMechanism {
 
         //fill each one in like the above with the correct buttons
 
-        if(joystick.getRawButton(UnoJoy2.intakeBallButton)) {
+        if(joystick.getRawButton(UnoJoy2.ballIntakeButton)) {
             intake();
         }
-        else if(joystick.getRawButton(UnoJoy2.outakeBallButton)) {
+        else if(joystick.getRawButton(UnoJoy2.ballOuttakeButton)) {
             outtake();
         }
         else {
