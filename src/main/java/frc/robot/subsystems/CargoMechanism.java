@@ -19,9 +19,10 @@ public class CargoMechanism {
     
     public CargoMechanism() {
         joystick = new Joystick(RobotMap2.joystickPort);
-        arm = new VictorSP(RobotMap2.hatchPort);
+        arm = new VictorSP(RobotMap2.armPort);
         intakeLeft = new VictorSP(RobotMap2.intakeLeftPort);
         intakeRight = new VictorSP(RobotMap2.intakeRightPort);
+        //sensors - limit switches
         topSwitch = new DigitalInput(RobotMap2.topSwitchPort);
         bottomSwitch = new DigitalInput(RobotMap2.bottomSwitchPort);
     }
