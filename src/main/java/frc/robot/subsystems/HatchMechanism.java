@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.controllers.UnoJoy2;
 
 /**
  * The hatch subsystem, which passively intakes hatches and actively outtakes (ejects) them.
@@ -47,7 +48,7 @@ public class HatchMechanism {
      * to ensure the subsystem updates its behavior according to user input and sensor input
      */
     public void run() {
-        if (joystick.getRawButton()) {
+        if (joystick.getRawButton(UnoJoy2.hatchOutButton)) {
             outtake();
         }
         else {
